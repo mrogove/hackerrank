@@ -9,7 +9,6 @@ for arr_i in range(6):
    arr.append(arr_t)
 
 """end input"""
-maxint = 0 #init check
 #print(arr)
 #print(type(arr[0][0]))
 """hourglass defined as:
@@ -18,10 +17,9 @@ maxint = 0 #init check
 [i+2][j],[i+2][j+1],[i+2][j+2]
 how to deal with out of range? limit i and j to always be < (len-2)
 """
+allVals = []
 for i in range(len(arr)-2):
     for j in range(len(arr[0])-2):
         sumval = arr[i][j] + arr[i][j+1] + arr[i][j+2] + arr[i+1][j+1] + arr[i+2][j] + arr[i+2][j+1] + arr[i+2][j+2]
-        if sumval > maxint:
-            maxint = sumval
-
-print(maxint)
+        allVals.append(sumval)
+print(max(allVals))
