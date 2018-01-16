@@ -40,8 +40,10 @@ if __name__ == '__main__':
     penultimate = sorted(list(set(score for name, score in scores)))[1]#turn to set, then back to list, then sort, then second value.
     # print(type(penultimate)) # it is a float!
 
-    #print('\n'.join([a for a,b in sorted(scores) if b == penultimate])) #if score = penult score, print associated name (a). sorted() for alphabetically
-
+    """
     for a,b in sorted(scores):
-        if b == penultimate:
-            print (a)
+         if b == penultimate:
+             print (a)
+    """
+    #more pythonic:
+    print('\n'.join([a for a,b in sorted(scores) if b == penultimate])) #if score = penult score, print associated name (a). sorted() for alphabetically
