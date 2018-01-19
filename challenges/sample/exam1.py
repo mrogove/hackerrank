@@ -1,36 +1,24 @@
 """
 pangram has every letter in alphabet
 determine if passed string is pangram
+
+1 - strip whitespace from input
+2 - use Counter module?
 """
 #!/bin/python3
 
 import sys
 import os
+import string
 
 # Complete the function below.
-alphabet = set(['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'])
+alphabet = set(string.ascii_lowercase)
 #constraint says all values will be lower case.
 
-print(alphabet)
-print(len(alphabet))
-
 def isPangram(strings):
-    binString = ''
-    #print(strings) #all strings passed in
-    i = 0 #init counter
+    binString = [int(len(list(set(string))) == len(alphabet)) for string in strings]
 
-    while i < len(strings):
-        compare = list(set(strings[i])) #assign that set
-        compare = [c for c in compare if c != ' '] #use list comp to remove space from list
-
-        if len(compare) == len(alphabet): #if no difference between sets
-            binString += '1'
-        else: #there is some difference
-            binString += '0'
-
-        i += 1 #iterate through list
-
-    return(binString)
+    return("".join(map(str,binString)))
 
 if __name__ == "__main__":
     #f = open(os.environ['OUTPUT_PATH'], 'w')
@@ -41,7 +29,7 @@ if __name__ == "__main__":
     strings = []
     while strings_i < strings_cnt:
         try:
-            strings_item = str(input())
+            strings_item = str(input()).replace(" ","") #remove whitespace
         except:
             strings_item = None
         strings.append(strings_item)
