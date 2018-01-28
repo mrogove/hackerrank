@@ -10,10 +10,15 @@ Sample Output
 
 Chris Alan
 """
+import string
 #trivial in python:
-def capitalize(string):
-    return string.title()
+def capitalize(s):
+    t = s.split()
+    l = []
+    for x in t:
+        l.append(x.capitalize())
 
+    return ' '.join(l)
 
 if __name__ == '__main__':
     string = input()
